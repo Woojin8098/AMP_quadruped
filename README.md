@@ -14,18 +14,22 @@ Paper: https://drive.google.com/file/d/1kFm79nMmrc0ZIiH0XO8_HV-fj73agheO/view?us
 1. Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended). i.e. with conda:
     - `conda create -n amp_hw python==3.8`
     - `conda activate amp_hw`
-2. Install pytorch 1.10 with cuda-11.3:
-    - `pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 tensorboard==2.8.0 pybullet==3.2.1 opencv-python==4.5.5.64 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html`
+2. Install pytorch 2.4.1 with cuda-12.1:
+    - `pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121`
+    - `pip install tensorboard==2.8.0 pybullet==3.2.1 opencv-python==4.5.5.64`
 3. Install Isaac Gym
    - Download and install Isaac Gym Preview 3 (Preview 2 will not work!) from https://developer.nvidia.com/isaac-gym
    - `cd isaacgym/python && pip install -e .`
    - Try running an example `cd examples && python 1080_balls_of_solitude.py`
-   - For troubleshooting check docs `isaacgym/docs/index.html`)
+   - For troubleshooting check docs `isaacgym/docs/index.html`
 4. Install rsl_rl (PPO implementation)
    - Clone this repository
    -  `cd AMP_for_hardware/rsl_rl && pip install -e .` 
 5. Install legged_gym
    - `cd ../ && pip install -e .`
+6. Downgrade some packages
+   - `pip install numpy==1.21`
+   - `pip install protobuf==3.20`
 
 ### CODE STRUCTURE ###
 1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one conatianing all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  
