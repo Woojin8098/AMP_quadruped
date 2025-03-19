@@ -30,3 +30,4 @@
 
 from .on_policy_runner import OnPolicyRunner
 from .amp_on_policy_runner import AMPOnPolicyRunner
+from .phc_on_policy_runner import PHCOnPolicyRunner
